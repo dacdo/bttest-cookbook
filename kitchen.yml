@@ -1,0 +1,33 @@
+---
+driver:
+  name: vagrant
+  synced_folders:
+      - ['/tmp', '/backups', 'create: true', owner: "root", group: "root"]
+  customize:
+    memory: 1024
+    cpus: 2
+  network:
+    - ["private_network", {ip: "192.168.33.22"}]
+
+transport:
+  name: ssh
+
+provisioner:
+  name: chef_zero
+  always_update_cookbooks: true
+  chef_license: accept
+  product_name: chef
+  product_version: 16
+
+verifier:
+  name: inspec
+  color: false
+
+platforms:
+  - name: bento/centos-7
+
+suites:
+  - name: default
+    # run_list not required in kitchen.yml as Policyfile is defined
+    # run_list:
+

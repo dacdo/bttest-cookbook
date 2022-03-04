@@ -13,4 +13,3 @@ default_source :supermarket
 # default_source :artifactory, 'https://artifactory.srv.westpac.com.au/artifactory/api/chef/Ext_Community_Supermarket' do |s|
 #   s.preferred_for 'line'
 # end
-
